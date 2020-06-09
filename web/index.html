@@ -1,0 +1,27 @@
+<html>
+
+<body>
+  <script src="/gen/example.js"></script>
+  <button class="mybutton">Run function</button>
+  <script>
+    document.querySelector('.mybutton')
+      .addEventListener('click', function () {
+        alert("Check log!")
+        Module.ccall(
+          'greeting',	// name of C function 
+          null,	// return type
+          ['string'],	// argument types
+          ['Yanushka']	// arguments
+        );
+        var result = Module.ccall(
+          'instrument',	// name of C function 
+          'string',	// return type
+          ['number'],	// argument types
+          ['8']	// arguments
+        );
+        console.log("I play the " , result);
+      });
+  </script>
+</body>
+
+</html>
